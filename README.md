@@ -1,7 +1,6 @@
 # Python Project: Build a Quiz Application
-This is the repository for the LinkedIn Learning course Python Project: Build a Quiz Application. The full course is available from [LinkedIn Learning][lil-course-url].
+This is the repository for the LinkedIn Learning course Python Project: Build a Quiz Application. The full course is available from 
 
-![Python Project: Build a Quiz Application][lil-thumbnail-url] 
 
 Think you’ve got a grip on Python? Looking for ways to improve your programming skills? One of the best ways is to put your skills into action and build something real. Join Joe Marini in this course, as he shows you how to use Python to build a quiz-taking program, step by step, explaining how to build and test each feature as you go along. Joe starts with designing the basic features and finishes with a completed application that presents the user with a menu-driven interface, administers the quizzes, and saves the results to a file. Once the app is built, he demonstrates ways to improve the app and add new features, like presenting the questions in random order and measuring the amount of time it takes a user to complete the quiz. If you want to put aside programming study and theory and learn through building something real, join Joe for this hands-on course.
 
