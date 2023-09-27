@@ -30,14 +30,18 @@ class QuizParser(xml.sax.ContentHandler):
         
     def parse_quiz(self, quizpath):
         # load the file contents
+        
         quiztext = ""
+        
         with open(quizpath, "r") as quizfile:
             if quizfile.mode == "r":
                 #lee todo el archivo
                 quiztext = quizfile.read()
-        
-        xml.sax.parseString(quiztext, self)
-        
+      
+        try:
+            xml.sax.parseString(quiztext, self)
+        except:
+            print("no es un xml correcto")       
         #T parse the file
 
         # return the finished quiz
