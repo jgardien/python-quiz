@@ -1,12 +1,22 @@
+from quizmanager import QuizManager
+from quiz import *
+
+
 class QuizApp:
+    QUIZ_FOLDER = "quizzes"
+    
     def __init__(self):
         self.username = ""
+        self.result = None
+        self.qm = QuizManager(QuizApp.QUIZ_FOLDER)
+        
     
     def startup(self):
         #print greeting
         self.greeting()
         self.username= input("Please enter our name: ")
         print(f"Welcome: {self.username}")
+        print()
         
     def greeting(self):
         print("^^^^^^^^^^^^")
@@ -28,7 +38,7 @@ class QuizApp:
         print("^^^^^^^^^^^^")
          
     def menu_error(self):
-        print("That's not a valid selection. Please try again. ")
+        print("That's not a valid Menu selection. Please try again. ")
     
     def menu(self):
         self.menu_header()
@@ -51,13 +61,19 @@ class QuizApp:
                 continue
             elif selection[0] == "L":
                 print("\n Available quizzes are \n")
-                #TO DO  List quizzes
+                #TO DO  List quizzese
+                self.qm.list_quizzes()
+                print()
+                
                 continue
             elif selection[0] == "T":
                 try:
-                    quiznumber = int(input("Enter the quiz number you want to run: "))
-                    print(f"you have selected {quiznumber}")
+                    
+                    quiznum  = int(input("Enter the quiz number you want to run: "))
+                    print(f"you have selected {quiznum}")
                     # TODO Start quiz
+                    self.result = self.qm.take_quiz(quiznum, self.username)
+                    self.qm.print_results()
                 except:
                     self.menu_error()
             else:

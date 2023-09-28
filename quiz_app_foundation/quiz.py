@@ -26,9 +26,12 @@ class Quiz:
 
     def take_quiz(self):
         # initialize the quiz state
+        print("no entro")
+        
         self.score = 0
         self.correct_count = 0
-
+        for q in self.questions:
+            q.is_correct = False
         # print the header
         self.print_header()
 
@@ -60,7 +63,7 @@ class QuestionTF(Question):
         while (True):
             print(f"(T)rue or (F)alse: {self.text}")
             response = input("? ")
-
+            
             if (len(response) == 0):
                 print("Sorry, that's not a valid response. Please try again")
                 continue
