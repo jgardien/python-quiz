@@ -26,7 +26,6 @@ class Quiz:
 
     def take_quiz(self):
         # initialize the quiz state
-        print("no entro")
         
         self.score = 0
         self.correct_count = 0
