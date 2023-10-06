@@ -1,7 +1,8 @@
 # Example file for LinkedIn Learning Course "Python: Build a Quiz App" by Joe Marini
 # The Quiz and Question classes define a particular quiz
-
-
+import datetime
+import sys
+import random
 class Quiz:
     def __init__(self):
         self.name = ""
@@ -19,10 +20,14 @@ class Quiz:
         print(f"TOTAL POINTS: {self.total_points}")
         print("*******************************************\n")
 
-    def print_results(self):
-        print("*******************************************")
-
-        print("*******************************************\n")
+    def print_results(self, quiztaker, thefile = sys.stdout):
+        print("*******************************************", file =thefile, flush=True)
+        print(f"Results for {quiztaker} ", file =thefile, flush=True)
+        today=datetime.datetime.now()
+        print(f'Date:  {today.strftime("%D")}', file =thefile, flush=True)
+        print(f"Correct count of questions {self.correct_count } out of {len(self.questions)} ", file =thefile, flush=True)    
+        print(f"Total score {self.score} out of {self.total_points}", file =thefile, flush=True)    
+        print("*******************************************\n", file =thefile, flush=True)
 
     def take_quiz(self):
         # initialize the quiz state
@@ -33,7 +38,8 @@ class Quiz:
             q.is_correct = False
         # print the header
         self.print_header()
-
+        # random order of questions
+        random.shuffle(self.questions)
         # execute each question and record the result
         for q in self.questions:
             q.ask()

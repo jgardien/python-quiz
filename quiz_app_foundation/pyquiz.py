@@ -72,8 +72,13 @@ class QuizApp:
                     quiznum  = int(input("Enter the quiz number you want to run: "))
                     print(f"you have selected {quiznum}")
                     # TODO Start quiz
-                    self.result = self.qm.take_quiz(quiznum, self.username)
+                    self.qm.take_quiz(quiznum, self.username)
                     self.qm.print_results()
+                    
+                    dosave= input("Save the results? (y/n): ")
+                    dosave = dosave.capitalize()
+                    if  len(dosave) > 0 and dosave[0] =="Y":
+                        self.qm.save_results()                        
                 except:
                     self.menu_error()
             else:

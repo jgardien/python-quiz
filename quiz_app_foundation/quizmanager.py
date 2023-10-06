@@ -41,24 +41,29 @@ class QuizManager:
     def take_quiz(self, quizid, username):
         self.quiztaker = username
         self.the_quiz = self.quizzes[quizid]
-        
-
         self.results = self.the_quiz.take_quiz()
-        
-        
-        return(self.results)
+               
+        #return(self.results)
 
 
     # prints the results of the most recently taken quiz
     def print_results(self):
-        pass
+        self.the_quiz.print_results(self.quiztaker)
 
     # save the results of the most recent quiz to a file
     # the file is named using the current date as
     # QuizResults_YYYY_MM_DD_N (N is incremented until unique)
     def save_results(self):
-        pass
-
+        today = datetime.datetime.now()
+        filename = f"quizResults_{self.quiztaker}_{today.year}_{today.month}_{today.day}.txt"
+        n=1
+        while (os.path.exists(filename)):
+            filename = f"quizResults_{self.quiztaker}_{today.year}_{today.month}_{today.day}_{n}.txt"
+            n+=1
+        
+        with open(filename, "w") as f:
+            self.the_quiz.print_results(self.quiztaker, f)   
+        
 
 if __name__ == "__main__":
     
