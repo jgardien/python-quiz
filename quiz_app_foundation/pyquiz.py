@@ -78,7 +78,8 @@ class QuizApp:
                     dosave= input("Save the results? (y/n): ")
                     dosave = dosave.capitalize()
                     if  len(dosave) > 0 and dosave[0] =="Y":
-                        self.qm.save_results()                        
+                        self.qm.save_results()
+                        
                 except:
                     self.menu_error()
             else:
